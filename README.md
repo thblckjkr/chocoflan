@@ -6,6 +6,8 @@ Chocoflan server management with SSH on PHP. Baked with [CodeIgniter](http://cod
 
 ## Description
 
+> This software, is a huge security breach on management. If you are on a controled environment,and you care a lot abot security, this is not you option. It is not a professional tool to do things. Just a way to do simple ssh things.
+
 This software, it's intended to be used on a small enviroment where you have a small set of servers/computer that need to be easily supervised through SSH, without any aditional configuration on the devices to be supervised.
 
 This program is a full rewrite of a small project that i had.
@@ -20,7 +22,26 @@ BTW, start with this
 git clone http://github.com/thblckjkr/chocoflan
 ```
 
-## Documentation
+## Dependencies
+
+There are a few dependencies that this project has
+
+```sh
+# Update the package
+sudo apt-get update
+
+# Install fping
+sudo apt install fping
+
+# Instal php-ssh2
+sudo apt install php-ssh2
+```
+
+## TODO
+
+- Write a good requirements check on `scripts/check.sh`
+
+## Docs
 
 Install it and use it.
 

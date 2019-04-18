@@ -1,0 +1,51 @@
+<IfModule mod_env.c>
+   # Set an development enviroment for codeigniter
+   SetEnv CI_ENV development
+
+   # Set PHP Time Zone:
+   SetEnv TZ America/Chihuahua
+</IfModule>
+<IfModule mod_rewrite.c>
+   <IfModule mod_negotiation.c>
+      Options -MultiViews
+   </IfModule>
+
+   RewriteEngine on
+   
+   RewriteBase /
+
+   RedirectMatch 403 ^/(system).*$
+
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteCond %{REQUEST_FILENAME} !-d
+
+	# $config[index-page] set to '' by this
+	RewriteRule ^(.*)$ index.php?/$1 [L]
+</IfModule>
+
+# BEGIN Expires
+# Set up 2 Hour caching on commonly updated files
+<IfModule mod_headers.c>
+   <FilesMatch "\.(xml|txt|js|css|ico)$">
+      ExpiresDefault A7200
+      Header append Cache-Control "proxy-revalidate"
+   </FilesMatch>
+</IfModule>
+<IfModule mod_expires.c>
+   # 3 seconds for everything else
+	ExpiresActive On
+	ExpiresDefault "access plus 3 seconds"
+	ExpiresByType text/html "access plus 3 seconds"
+
+   # 4 weeks for not commonly refreshed
+	ExpiresByType image/gif "access plus 2419200 seconds"
+	ExpiresByType image/jpeg "access plus 2419200 seconds"
+	ExpiresByType image/png "access plus 2419200 seconds"
+	ExpiresByType image/ico "access plus 2419200 seconds"
+
+   # 3 hours to commonly refreshed things
+	ExpiresByType text/css "access plus 10800 seconds"
+	ExpiresByType text/javascript "access plus 10800 seconds"
+	ExpiresByType application/x-javascript "access plus 10800 seconds"
+</IfModule>
+# END Expires
