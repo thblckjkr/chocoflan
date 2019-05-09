@@ -73,8 +73,12 @@ class ServersSH
       
       $this->connection = true; //Connection established
    }
-   
-   public function getStatus($h = false)
+
+   public function get(){
+      return get_object_vars($this->status);
+   }
+
+   public function collect($h = false)
    {
       $this->status = new stdClass();
       

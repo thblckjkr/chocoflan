@@ -5,6 +5,7 @@
    <meta charset="utf-8">
    <meta http-equiv="content-type" content="text/html">
    <title>Chocoflan | <?=$title?></title>
+   <link rel="icon" href="webroot/img/chocoflan.png" type="image/png">
 
    <!-- Authors meta tags -->
    <meta name="author" content="Teo Gonzalez @thblckjkr;">

@@ -15,8 +15,9 @@ class Api extends CI_Controller {
 
       if ($this->serverssh->connection){
          echo "Sucessfully connected to server";
-         $this->serverssh->getStatus();
-         echo json_encode($this->serverssh->status->services);
+         $this->serverssh->collect();
+         $data = $this->serverssh->status();
+
       }else{
          $error = $this->serverssh->getError(); //Get array of errors "code" => "description"
          var_dump($error);
